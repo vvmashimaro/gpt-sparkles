@@ -683,27 +683,21 @@
     }
 
     try {
-<<<<<<< HEAD
-      var bootRole = new URLSearchParams(window.location.search || '').get('role');
+      var bootParams = new URLSearchParams(window.location.search || '');
+      var bootRole = bootParams.get('role');
       if (bootRole === 'parent' || bootRole === 'mentor') {
         switchRole(bootRole);
       } else {
         switchRole('parent');
       }
-    } catch (e) {
-      switchRole('parent');
-    }
-=======
-      var bootParams = new URLSearchParams(window.location.search || '');
-      var bootRole = bootParams.get('role');
-      if (bootRole === 'parent' || bootRole === 'mentor') switchRole(bootRole);
       var hint = bootParams.get('hint');
       if (hint) {
         var sub = document.getElementById('roleSubtitle');
         if (sub) sub.innerText = decodeURIComponent(hint);
       }
-    } catch (e) {}
->>>>>>> 105689a (feat: E+C hybrid parent browse on homepage with public mentor API)
+    } catch (e) {
+      switchRole('parent');
+    }
   </script>
 </body>
 </html>
